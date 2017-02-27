@@ -1,0 +1,13 @@
+mixin result-item(item)
+    .panel.panel-default
+        .panel-heading
+            h3.panel-title
+                a(href="#{item.url}") #{item.url}
+                span   on level #{item.level}
+        .panel-body
+            ul.list-group
+                each content in item.content
+                    li.list-group-item= content
+for result in results
+    +result-item(result)
+

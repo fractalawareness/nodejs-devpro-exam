@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  form#scrapperForm
+    .form-group
+      label(for='inputUrl') URL
+      input#inputUrl.form-control(name='url',type='url',  placeholder='Enter URL')
+    .form-group
+      label(for='inputElement') Element
+      input#inputElement.form-control(name='element', type='text',  placeholder='element')
+    .form-group
+      label(for='selectLevel') Select level
+      select#selectLevel.form-control(name='level')
+        option 1
+        option 2
+        option 3
+        option 4
+        option 5
+    button.btn.btn-primary(type='submit') Submit
+  #errors(style='display:none')
+  #results.well
+
+
