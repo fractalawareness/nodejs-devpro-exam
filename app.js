@@ -1,17 +1,21 @@
-let express = require('express');
-let path = require('path');
-let favicon = require('serve-favicon');
-let logger = require('morgan');
-let cookieParser = require('cookie-parser');
-let bodyParser = require('body-parser');
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
 const config = require('config');
 const SwaggerExpress = require('swagger-express-mw');
 const SwaggerUi = require('swagger-tools/middleware/swagger-ui');
 
-let index = require('./routes/index');
-// let list = require('./routes/list');
+// You should not randomly use let/const/var. Each of it has its own purpose.
+// Read http://softwareengineering.stackexchange.com/questions/278652/how-much-should-i-be-using-let-vs-const-in-es6
+// and https://medium.com/javascript-scene/javascript-es6-var-let-or-const-ba58b8dcde75#.48elfjrku
 
-let app = express();
+const index = require('./routes/index');
+// const list = require('./routes/list');
+
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -40,7 +44,7 @@ app.use('/', index);
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
-//   let err = new Error('Not Found');
+//   const err = new Error('Not Found');
 //   err.status = 404;
 //   next(err);
 // });

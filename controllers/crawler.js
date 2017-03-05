@@ -1,10 +1,13 @@
-let Url = require('url');
-let cheerio = require('cheerio');
-let request = require('request');
-let EventEmitter = require('events');
-let fs = require('fs');
+const Url = require('url');
+const cheerio = require('cheerio');
+const request = require('request');
+const EventEmitter = require('events');
+const fs = require('fs');
 const log = require('../log');
 const config = require('config');
+
+// Its a good idea to cover everything with logs
+
 module.exports = class Crawler extends EventEmitter {
     constructor({
         url = 'http://www.example.com',

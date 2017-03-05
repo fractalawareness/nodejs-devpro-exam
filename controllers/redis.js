@@ -19,7 +19,13 @@ class RedisManager{
         return `${config.redis.cache.prefix}:${encodeURIComponent(item.url)}:${item.level}:${item.element}`;
     }
     getItem (item, deleteIfFound){
+        // It would be better to have 2 separate functions instead of using deleteIfFound
+        // workaround. Actually there would be different redis commands for each of them.
+        // Read The Little Redis Book to improve your knowladge of Redis.
         let key = this.historyKey(item);
+        // Please avoid nesting callbacks, promises and functions
+        // by separating them to different parts
+        // and/or use generators to write flat async code.
         return new Promise((resolve, reject) => {
             return this.client.getAsync(key).then((data)=>{
                 data = JSON.parse(data);
